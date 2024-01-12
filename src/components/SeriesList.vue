@@ -70,8 +70,11 @@ export default{
                           </div>
                           <div class="mb-2">
                           <!-- MIDIA VOTO -->
-                           VOTO: {{ (serie.vote_average).toFixed(0)}}
-                          
+                           VOTO: {{ (serie.vote_average).toFixed(0)}} <i class="bi bi-star-fill"></i>
+                           <i class="bi bi-star-fill"></i>
+                           <i class="bi bi-star-fill"></i>
+                           <i class="bi bi-star-fill"></i>
+                           <i class="bi bi-star-fill"></i>
                         </div>
                     
                         </div>        

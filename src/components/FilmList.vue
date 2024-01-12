@@ -70,7 +70,11 @@ export default{
               </div>
               <div class="mb-2">
               <!-- MIDIA VOTO -->
-               VOTO : {{ ((films.vote_average)/ 2).toFixed(0)}}
+               VOTO : {{ ((films.vote_average)/ 2).toFixed(0)}} <i class="bi bi-star-fill"></i>
+               <i class="bi bi-star-fill"></i>
+               <i class="bi bi-star-fill"></i>
+               <i class="bi bi-star-fill"></i>
+               <i class="bi bi-star-fill"></i>
             </div>
             </div>            
           </div>
@@ -106,6 +110,9 @@ export default{
     flex-direction: column;
     align-items: center;
     line-height: 30px;
+   }
+   i{
+    color: black
    }
 }
 </style>

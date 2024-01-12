@@ -50,6 +50,7 @@ export default{
 
 <template>
   <AppHeader  @SearchSeries=" getFilmList"/>
+
   <FilmList />
   <SeriesList />
 </template>
