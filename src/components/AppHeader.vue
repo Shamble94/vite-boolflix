@@ -1,21 +1,27 @@
 <script>
+import { store } from "../store.js"
 export default{
-    name: "AppHeader"
+    name: "AppHeader",
+    data(){
+          return{
+            store
+          }
+        }
 }
 </script>
 <template lang="">
     <div class="sfondo-nero">
         <div class="container ">
             <div class="row style_header">
-                <div class="col-2 nome_pag">
+                <div class="col-2 p-1">
                     <div>
                         <h4>BOOLZFLIX</h4>
                     </div>
                 </div> 
                 <div class="col-2 nome_pag">
                     <div>
-                        <input type="text" class="form-control">
-                        <button class="btn">Ricerca</button>
+                        <input type="text" class="form-control" v-model="store.search" >
+                        <button class="btn btn-primary" @click="$emit(`SearchFilm`)">Ricerca</button>
                     </div>
                 </div>
             </div>
@@ -23,12 +29,9 @@ export default{
     </div>   
 </template>
 <style lang ="scss" scoped>
-.nome_pag{
-    padding: 10px;
-    
-}
+
 .sfondo-nero{
-   
+ 
     background-color: black;
     .style_header{
         display: flex;
