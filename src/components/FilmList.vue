@@ -25,6 +25,7 @@ export default{
 
         return flag
       }
+      
     },
 
     created(){
@@ -37,18 +38,16 @@ export default{
 <template lang="">
   <div>
     <body>
-      <!-- CONTAINER -->
       <div class="container">
-        <!--  CONTENITORE DEI FILM -->
-        <div class="container-films">
-          <h4 v-if="store.film.length > 0"> FAI LA TUA PRIMA RICERCA </h4>
-          <ul>
+
+        <div class="row container-films">
+          <h4 v-if="store.film.length <= 0"> FAI LA TUA PRIMA RICERCA </h4>
             <!-- LISTA CONTENENTE I DATI DEI FILM -->
-            <li v-for="films, index in store.film" :key="index" id="lista" > 
+            <div class="poppo col-3 " v-for="films, index in store.film" :key="index" id="lista" > 
               <!-- TITOLO  -->
               TITOLO: {{ films.title }} 
               <div>
-              <!-- TITOLO ORIGINALE  -->
+                <!-- TITOLO ORIGINALE  -->
               TITOLO ORIGINALE: {{ films.original_title }}
               </div>
               <div>
@@ -59,13 +58,10 @@ export default{
               <div>
               <!-- MIDIA VOTO -->
               MEDIA VOTO: {{ (films.vote_average).toFixed(1)}}
-              </div>
-          </li>
-          </ul>
-        </div>
+            </div>
+          </div>
+        </div>        
       </div>
-
-      
     </body>
 
   </div>
@@ -75,12 +71,16 @@ export default{
 .container-films{
     display: flex;
     margin-top: 20px;
-    flex-direction: column;
-    li{
-      margin-bottom: 20px
-    }
     h4{
-      margin: 10px
+      margin: 30px 0px
+    }
+    .poppo{  
+        height: 200px
+    }
+    .container-card{
+        display: flex;
+
+        
     }
 }
 </style>

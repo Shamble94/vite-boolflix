@@ -21,11 +21,16 @@ export default{
           flag = "fi fi-it"
         }
         return flag
+      },
+      getPoster(series){
+          let poster = `https://image.tmdb.org/t/p/w342${series.poster_path}`
+          console.log(series)
+          return poster
       }
     },
-
     created(){
-      this.getFlag()
+      this.getFlag();
+      this.getPoster()
     }
   
   }
@@ -37,28 +42,38 @@ export default{
       <!-- CONTAINER -->
       <div class="container">
         <!--  CONTENITORE DEI FILM -->
-        <div class="container-films">
-            <h4 v-if="store.series.length > 0"> FAI LA TUA PRIMA RICERCA </h4>
-          <ul>
-            <!-- LISTA CONTENENTE I DATI DEI FILM -->
-            <li v-for="serie, index in store.series" :key="index" > 
-              <!-- TITOLO  -->
-              TITOLO: {{ serie.name }} 
-              <div>
-              <!-- TITOLO ORIGINALE  -->
-              TITOLO ORIGINALE: {{ serie.original_name }}
-              </div>
-              <div>
-              <!-- LINGUA ORIGINALE --> 
-              LINGUA ORIGINALE: 
-              <span > <i :class="getFlag(serie.original_language)"></i></span>
-              </div>
-              <div>
-              <!-- MIDIA VOTO -->
-              MEDIA VOTO: {{ (serie.vote_average).toFixed(1)}}
-              </div>
-          </li>
-          </ul>
+        <div class="container-series">
+            <div class="row ">
+
+                <h4 v-if="store.series.length > 0"> FAI LA TUA PRIMA RICERCA </h4>
+        
+                  <!-- LISTA CONTENENTE I DATI DEI FILM -->
+                  
+                    <div class="card col-3" v-for="serie, index in store.series" :key="index" > 
+
+                            <div>
+                                <img :src="getPoster(series)" alt="">
+                            </div>
+                 
+                        <!-- TITOLO  -->
+                        TITOLO: {{ serie.name }} 
+                        <div>
+                        <!-- TITOLO ORIGINALE  -->
+                        TITOLO ORIGINALE: {{ serie.original_name }}
+                        </div>
+                        <div>
+                        <!--div class="cardNGUA ORIGINALE --> 
+                        LINGUA ORIGINALE: 
+                        <span > <i :class="getFlag(serie.original_language)"></i></span>
+                        </div>
+                        <div>
+                        <!-- MIDIA VOTO -->
+                        MEDIA VOTO: {{ (serie.vote_average).toFixed(1)}}
+                        
+                    </div>
+                  
+                </div>
+            </div>
         </div>
       </div>
 
@@ -69,17 +84,16 @@ export default{
 </template>
 <style lang ="scss" scoped>
 @use '../styles/generals.scss' as *;
-.container-films{
+.container-series{
     display: flex;
     margin-top: 20px;
-    flex-direction: column;
-    li{
-      margin-bottom: 20px;
-      color: black
-    }
     h4{
       margin: 10px
     }
+    .card{
+        height: 500px
+    }
+   
 }
 </style>
 
