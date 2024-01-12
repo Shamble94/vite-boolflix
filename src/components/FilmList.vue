@@ -51,25 +51,28 @@ export default{
           
           <!-- LISTA CONTENENTE I DATI DEI FILM -->
           <h4 v-if="store.film.length <= 0"> FAI LA TUA PRIMA RICERCA </h4>
-          <div class="card col-3 " v-for="(films, index) in store.film" :key="index" id="lista" > 
+          <div class="card col-3 " v-for="(films, index) in store.film" :key="index" > 
               <div>
               <img :src="getPoster(films)" alt="poster">
-            </div>             
+            </div> 
+            <div class="container-info">
+
               <!-- TITOLO  -->
-              TITOLO: {{ films.title }} 
+             <h2>{{ films.title }} </h2>
               <div>
                 <!-- TITOLO ORIGINALE  -->
-              TITOLO ORIGINALE: {{ films.original_title }}
+            {{ films.original_title }}
               </div>
               <div>
               <!-- LINGUA ORIGINALE --> 
-              LINGUA ORIGINALE: 
+             
               <span > <i :class="getFlag(films.original_language)"></i></span>
               </div>
-              <div>
+              <div class="mb-2">
               <!-- MIDIA VOTO -->
-              MEDIA VOTO: {{ (films.vote_average).toFixed(3)}}
+               VOTO : {{ ((films.vote_average)/ 2).toFixed(0)}}
             </div>
+            </div>            
           </div>
         </div>        
       </div>
@@ -79,22 +82,30 @@ export default{
 </template>
 <style lang ="scss" scoped>
 @use '../styles/generals.scss' as *;
+.row{
+    padding:0;
+  }
 .container-films{
+  
     display: flex;
     margin-top: 20px;
     h4{
       margin: 30px 0px
     }
-   
-  
-    
     img{
     width: 100%;
     height: 400px
    
    }
-   .col-3{
-    margin: 0;
+   .card{
+    margin: 0
+   }
+   .container-info{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    line-height: 30px;
    }
 }
 </style>

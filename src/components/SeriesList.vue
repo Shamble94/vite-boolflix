@@ -96,9 +96,7 @@ export default{
     height: 400px
    
    }
-   .col-3{
-    margin: 0;
-   }
+
 }
 </style>
 
