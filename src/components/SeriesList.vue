@@ -54,24 +54,27 @@ export default{
                     <div class="card col-3" v-for="(serie, index) in store.series" :key="index" > 
                             <div>
                                 <img :src="getPoster(serie)" alt="poster">
-                            </div>              
-                        <!-- TITOLO  -->
-                        TITOLO: {{ serie.name }} 
-                        <div>
-                        <!-- TITOLO ORIGINALE  -->
-                        TITOLO ORIGINALE: {{ serie.original_name }}
+                            </div>      
+                        <div class="container-info">
+
+                          <!-- TITOLO  -->
+                           {{ serie.name }} 
+                          <div>
+                          <!-- TITOLO ORIGINALE  -->
+                        {{ serie.original_name }}
+                          </div>
+                          <div>
+                          <!--div class="cardNGUA ORIGINALE --> 
+                     
+                          <span > <i :class="getFlag(serie.original_language)"></i></span>
+                          </div>
+                          <div class="mb-2">
+                          <!-- MIDIA VOTO -->
+                           VOTO: {{ (serie.vote_average).toFixed(0)}}
+                          
                         </div>
-                        <div>
-                        <!--div class="cardNGUA ORIGINALE --> 
-                        LINGUA ORIGINALE: 
-                        <span > <i :class="getFlag(serie.original_language)"></i></span>
-                        </div>
-                        <div>
-                        <!-- MIDIA VOTO -->
-                        MEDIA VOTO: {{ (serie.vote_average).toFixed(1)}}
-                        
-                    </div>
-                  
+                    
+                        </div>        
                 </div>
             </div>
         </div>
@@ -96,7 +99,14 @@ export default{
     height: 400px
    
    }
-
+   .container-info{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    line-height: 30px;
+   }
 }
+
 </style>
 
