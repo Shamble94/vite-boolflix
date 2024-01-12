@@ -24,8 +24,15 @@ export default{
         }
 
         return flag
-      }
-      
+      },
+      getPoster(film){
+            let poster = `https://image.tmdb.org/t/p/w342${film.poster_path}`
+          
+            if(film.poster_path === null ){
+                poster = "placeholder.jpg"
+            }
+            return poster
+        }
     },
 
     created(){
@@ -41,9 +48,13 @@ export default{
       <div class="container">
 
         <div class="row container-films">
+          
+          <!-- LISTA CONTENENTE I DATI DEI FILM -->
           <h4 v-if="store.film.length <= 0"> FAI LA TUA PRIMA RICERCA </h4>
-            <!-- LISTA CONTENENTE I DATI DEI FILM -->
-            <div class="poppo col-3 " v-for="films, index in store.film" :key="index" id="lista" > 
+          <div class="card col-3 " v-for="(films, index) in store.film" :key="index" id="lista" > 
+              <div>
+              <img :src="getPoster(films)" alt="poster">
+            </div>             
               <!-- TITOLO  -->
               TITOLO: {{ films.title }} 
               <div>
@@ -57,7 +68,7 @@ export default{
               </div>
               <div>
               <!-- MIDIA VOTO -->
-              MEDIA VOTO: {{ (films.vote_average).toFixed(1)}}
+              MEDIA VOTO: {{ (films.vote_average).toFixed(3)}}
             </div>
           </div>
         </div>        
@@ -74,14 +85,17 @@ export default{
     h4{
       margin: 30px 0px
     }
-    .poppo{  
-        height: 200px
-    }
-    .container-card{
-        display: flex;
-
-        
-    }
+   
+  
+    
+    img{
+    width: 100%;
+    height: 400px
+   
+   }
+   .col-3{
+    margin: 0;
+   }
 }
 </style>
 

@@ -21,16 +21,18 @@ export default{
           flag = "fi fi-it"
         }
         return flag
-      },
-      getPoster(series){
-          let poster = `https://image.tmdb.org/t/p/w342${series.poster_path}`
-          console.log(series)
-          return poster
-      }
+        },
+        getPoster(series){
+            let poster = `https://image.tmdb.org/t/p/w342${series.poster_path}`
+          
+            if(series.poster_path === null){
+                poster = "placeholder.jpg"
+            }
+            return poster
+        }
     },
     created(){
-      this.getFlag();
-      this.getPoster()
+      this.getFlag()
     }
   
   }
@@ -45,16 +47,14 @@ export default{
         <div class="container-series">
             <div class="row ">
 
-                <h4 v-if="store.series.length > 0"> FAI LA TUA PRIMA RICERCA </h4>
-        
+                
+                <h4 v-if="store.series.length >0"> SERIE TV</h4>
                   <!-- LISTA CONTENENTE I DATI DEI FILM -->
                   
-                    <div class="card col-3" v-for="serie, index in store.series" :key="index" > 
-
+                    <div class="card col-3" v-for="(serie, index) in store.series" :key="index" > 
                             <div>
-                                <img :src="getPoster(series)" alt="">
-                            </div>
-                 
+                                <img :src="getPoster(serie)" alt="poster">
+                            </div>              
                         <!-- TITOLO  -->
                         TITOLO: {{ serie.name }} 
                         <div>
@@ -87,13 +87,18 @@ export default{
 .container-series{
     display: flex;
     margin-top: 20px;
-    h4{
-      margin: 10px
+    h4{ 
+      margin: 30px 0px
     }
-    .card{
-        height: 500px
-    }
+    
+    img{
+    width: 100%;
+    height: 400px
    
+   }
+   .col-3{
+    margin: 0;
+   }
 }
 </style>
 
