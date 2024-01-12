@@ -16,18 +16,13 @@ export default{
         let flag = `fi fi-${film}`
         if(flag === "fi fi-en"){
           flag = `fi fi-gb`
-          console.log(flag)
         }
-        if(flag === "fi fi-ko"){
-          flag = `fi fi-kr`
-          console.log(flag)
+       
+  
+        if(flag !== "fi fi-gb"  && flag !=="fi fi-es"  && flag !=="fi fi-de" && flag !=="fi fi-it"){
+          flag = "fi fi-it"
         }
-        if(flag === "fi fi-ja"){
-          flag = `fi fi-jp`
-          console.log(flag)
-        }
-          
-        console.log(flag)
+
         return flag
       }
     },
@@ -46,7 +41,7 @@ export default{
       <div class="container">
         <!--  CONTENITORE DEI FILM -->
         <div class="container-films">
-          <span> FAI LA TUA PRIMA RICERCA </span>
+          <h4 v-if="store.film.length > 0"> FAI LA TUA PRIMA RICERCA </h4>
           <ul>
             <!-- LISTA CONTENENTE I DATI DEI FILM -->
             <li v-for="films, index in store.film" :key="index" id="lista" > 
@@ -84,7 +79,7 @@ export default{
     li{
       margin-bottom: 20px
     }
-    span{
+    h4{
       margin: 10px
     }
 }

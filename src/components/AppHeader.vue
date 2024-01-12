@@ -21,7 +21,7 @@ export default{
                 <div class="col-2 nome_pag">
                     <div>
                         <input type="text" class="form-control" v-model="store.search" >
-                        <button class="btn btn-primary" @click="$emit(`SearchFilm`)">Ricerca</button>
+                        <button class="btn" @click="$emit(`SearchSeries`, `SearchFilm`)">Ricerca</button>
                     </div>
                 </div>
             </div>
