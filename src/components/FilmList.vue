@@ -32,13 +32,18 @@ export default{
                 poster = "placeholder.jpg"
             }
             return poster
-        }
+        },
+   
+    Reviews(vote){
+      let reviews = Math.ceil(vote.toFixed(0) / 2)
+      
+      return reviews
     },
 
     created(){
       this.getFlag()
     }
-  
+    }
   }
 
 </script>
@@ -69,13 +74,13 @@ export default{
               <span > <i :class="getFlag(films.original_language)"></i></span>
               </div>
               <div class="mb-2">
-              <!-- MIDIA VOTO -->
-               VOTO : {{ ((films.vote_average)/ 2).toFixed(0)}} <i class="bi bi-star-fill"></i>
-               <i class="bi bi-star-fill"></i>
-               <i class="bi bi-star-fill"></i>
-               <i class="bi bi-star-fill"></i>
-               <i class="bi bi-star-fill"></i>
-            </div>
+              <!-- MIDIA VOTO -->  
+                <i class="bi bi-star-fill" :class = "Reviews(films.vote_average) >= 1 ? `giallo` : ``"></i>
+                <i class="bi bi-star-fill" :class = "Reviews(films.vote_average) >= 2 ? `giallo` : ``"></i>
+                <i class="bi bi-star-fill" :class = "Reviews(films.vote_average) >= 3 ? `giallo` : ``"></i>
+                <i class="bi bi-star-fill" :class = "Reviews(films.vote_average) >= 4 ? `giallo` : ``"></i>
+                <i class="bi bi-star-fill" :class = "Reviews(films.vote_average) >= 5 ? `giallo` : ``"></i>
+              </div>
             </div>            
           </div>
         </div>        
@@ -113,6 +118,9 @@ export default{
    }
    i{
     color: black
+   }
+   .giallo{
+    color: yellow
    }
 }
 </style>
