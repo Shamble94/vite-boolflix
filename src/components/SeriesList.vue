@@ -74,7 +74,7 @@ export default{
                           <span > <i :class="getFlag(serie.original_language)"></i></span>
                           </div>
                           <div class="mb-2">
-                          <!-- MIDIA VOTO -->
+                            <!-- VOTO IN STELLE -->
                             <i class="bi bi-star-fill" :class = "SeriesReviews(serie.vote_average) >= 1 ? `giallo` : ``"></i>
                             <i class="bi bi-star-fill" :class = "SeriesReviews(serie.vote_average) >= 2 ? `giallo` : ``"></i>
                             <i class="bi bi-star-fill" :class = "SeriesReviews(serie.vote_average) >= 3 ? `giallo` : ``"></i>
