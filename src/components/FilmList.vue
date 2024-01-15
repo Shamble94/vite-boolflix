@@ -187,10 +187,34 @@ export default{
   width: 100%;
   height: 100%;
   overflow-y: auto;
+  
+  scrollbar-width: thin;
+  padding: 5px
 }
  .card{
   padding: 0;
  }  
+ /* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: yellow; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(2, 2, 73); 
+}
 }
 </style>
 

@@ -15,12 +15,12 @@ export default{
             <div class="row style_header">
                 <div class="col-2 p-1">
                     <div>
-                        <h4>BOOLZFLIX</h4>
+                        <h4>NETFLIX BANGLADINO</h4>
                     </div>
                 </div> 
                 <div class="col-2 nome_pag">
                     <div>
-                        <input type="text" class="form-control" v-model="store.search" >
+                        <input type="text" class="form-control" v-model="store.search" placeholder="Ricerca..." >
                         <button class="btn" @click="$emit(`SearchSeries`, `SearchFilm`)">Ricerca</button>
                     </div>
                 </div>
@@ -33,6 +33,7 @@ export default{
 .sfondo-nero{
  
     background-color: black;
+    padding: 10px;
     .style_header{
         display: flex;
         justify-content: space-between;

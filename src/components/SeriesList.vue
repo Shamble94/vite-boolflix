@@ -49,8 +49,10 @@ export default{
 
     <div class="row container-films">
       
-      
-      <h4 v-if="store.series.length  > 0"> SERIE TV</h4>
+      <div class="titolo">
+
+        <h3 v-if="store.series.length  > 0"> SERIE TV</h3>
+      </div>
       <div class="card col-3" v-for="(series, index) in store.series" :key="index" > 
         <div class="flip-card">
           <div class="flip-card-inner">
@@ -107,14 +109,18 @@ position: relative
 display: flex;
 margin-top: 20px;
 
-h4{
-  margin: 30px 0px
+h3{
+  margin:20px
 }
 img{
 width: 100%;
 height: 400px;
 
 
+}
+.titolo{
+  display: flex;
+  justify-content: center;
 }
 
 .container-info{
@@ -182,11 +188,34 @@ color: white;
 transform: rotateY(180deg);
 width: 100%;
 height: 100%;
+margin: 5px;
 overflow-y: auto;
+padding: 5px
 }
 .card{
 padding: 0;
 }  
+ /* width */
+ ::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: yellow; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(2, 2, 73); 
+}
 }
 </style>
 
