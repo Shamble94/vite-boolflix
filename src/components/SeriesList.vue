@@ -53,7 +53,7 @@ export default{
 
         <h3 v-if="store.series.length  > 0"> SERIE TV</h3>
       </div>
-      <div class="card col-3" v-for="(series, index) in store.series" :key="index" > 
+      <div class="card  col-4 col-md-3 col-lg-2" v-for="(series, index) in store.series" :key="index" > 
         <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
@@ -98,11 +98,9 @@ export default{
 </template>
 <style lang ="scss" scoped>
 @use '../styles/generals.scss' as *;
+
 .row{
 padding:0;
-}
-.container{
-position: relative
 }
 .container-films{
 

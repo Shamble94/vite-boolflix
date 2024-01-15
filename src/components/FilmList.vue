@@ -51,11 +51,11 @@ export default{
 
       <div class="container">
 
-        <div class="row container-films">
+        <div class="row container-films ">
           
           
           <h4 v-if="store.film.length <= 0"> FAI LA TUA PRIMA RICERCA </h4>
-          <div class="card col-3" v-for="(films, index) in store.film" :key="index" > 
+          <div class="card  col-4 col-md-3 col-lg-2" v-for="(films, index) in store.film" :key="index" > 
             <div class="flip-card">
               <div class="flip-card-inner">
                 <div class="flip-card-front">
@@ -103,9 +103,7 @@ export default{
 .row{
     padding:0;
   }
-.container{
-  position: relative
-}
+
 .container-films{
   
     display: flex;
